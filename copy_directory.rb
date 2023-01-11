@@ -36,8 +36,11 @@ def print_header
 end
 
 def print(students)
-  students.each.with_index(1) do |student, index|
-    puts "#{index} #{student[:name]} (#{student[:cohort]} cohort)" if student[:name].length < 12 && student[:name].chars.first.upcase == "A"
+# while loop is printing student names while count is not equal number of students 
+  count = 0
+  while count != students.length do
+    puts "#{students[count][:name]} (#{students[count][:cohort]} cohort)"
+    count += 1
   end
 end
 
