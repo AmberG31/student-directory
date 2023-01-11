@@ -35,8 +35,8 @@ def student_input
 end
 
 def print_header
-  puts "The students of Villains Academy"
-  puts "-------------"
+  puts "The students of Villains Academy".center(40)
+  puts "-------------".center(40)
 end
 
 def print(students)
@@ -44,13 +44,12 @@ def print(students)
   count = 0
   while count != students.length do
     puts "#{students[count][:name]} (#{students[count][:cohort]} cohort). #{students[count][:name]}'s favorite hobby is #{students[count][:hobbies]}"
-   
+     count += 1
   end
-   count += 1
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great students".center(40)
 end
 
 students = student_input
