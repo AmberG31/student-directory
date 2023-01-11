@@ -19,12 +19,16 @@ def student_input
   students = []
 # ask for user input
   name = gets.chomp
+# ask about hobby
+  puts "Please enter a hobby"
+  hobby = gets.chomp
 # while the name is not empty, repeat this code
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: :november, hobbies: hobby}
     puts "Now we have #{students.count} students"
   # get anohter name from the user
     name = gets.chomp
+    hobby = gets.chomp
   end
   # return the array of students
   return students
@@ -39,9 +43,10 @@ def print(students)
 # while loop is printing student names while count is not equal number of students 
   count = 0
   while count != students.length do
-    puts "#{students[count][:name]} (#{students[count][:cohort]} cohort)"
-    count += 1
+    puts "#{students[count][:name]} (#{students[count][:cohort]} cohort). #{students[count][:name]}'s favorite hobby is #{students[count][:hobbies]}"
+   
   end
+   count += 1
 end
 
 def print_footer(students)
