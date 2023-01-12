@@ -15,7 +15,7 @@
 def student_input
   months = ["january","february","march","april","may","june","july","august","september","october","november","december"]
   puts "Please enter the names of the students"
-  puts "To finish, just hit return three times"
+  puts "To finish, leave the name blank and press enter"
 # create an ampty array
   students = []
 # ask for user input on name
@@ -34,8 +34,14 @@ def student_input
     # get anohter name from the user
     puts "Please enter next student"
     name = gets.chomp
+    if name.empty?
+      break
+    end
+    puts "Whtat is the cohort?"
+    cohort = gets.chomp.to_sym
+    cohort = "January" if cohort.empty?
+    puts "And the hobby?"
     hobby = gets.chomp
-    cohort = gets.chomp
   end
   # return the array of students
   return students
