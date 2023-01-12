@@ -13,30 +13,37 @@
 #]
 # instead of array or hash, we ask student for the name
 def student_input
+  months = ["january","february","march","april","may","june","july","august","september","october","november","december"]
   puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
-# create an ampty array 
+  puts "To finish, just hit return three times"
+# create an ampty array
   students = []
-# ask for user input
+# ask for user input on name
   name = gets.chomp
-# ask about hobby
+# ask what cohort it is 
+  puts "Enter cohort:"
+  cohort = gets.chomp.to_sym
+  cohort = "January" if cohort.empty?
+  # ask about hobby
   puts "Please enter a hobby"
   hobby = gets.chomp
 # while the name is not empty, repeat this code
   while !name.empty? do
-    students << {name: name, cohort: :november, hobbies: hobby}
+    students << {name: name, cohort: cohort, hobbies: hobby}
     puts "Now we have #{students.count} students"
-  # get anohter name from the user
+    # get anohter name from the user
+    puts "Please enter next student"
     name = gets.chomp
     hobby = gets.chomp
+    cohort = gets.chomp
   end
   # return the array of students
   return students
 end
 
 def print_header
-  puts "The students of Villains Academy".center(40)
-  puts "-------------".center(40)
+  puts "The students of Villains Academy"
+  puts "-------------"
 end
 
 def print(students)
@@ -44,12 +51,12 @@ def print(students)
   count = 0
   while count != students.length do
     puts "#{students[count][:name]} (#{students[count][:cohort]} cohort). #{students[count][:name]}'s favorite hobby is #{students[count][:hobbies]}"
-     count += 1
+    count += 1
   end
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students".center(40)
+  puts "Overall, we have #{students.count} great students"
 end
 
 students = student_input
