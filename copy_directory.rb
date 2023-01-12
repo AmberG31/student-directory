@@ -20,10 +20,15 @@ def student_input
   students = []
 # ask for user input on name
   name = gets.chomp
-# ask what cohort it is 
-  puts "Enter cohort:"
+# ask what cohort it is. Cohort is set to January if input left empty 
+  puts "Enter cohort. Note, it will be set to January as default"
   cohort = gets.chomp.to_sym
-  cohort = "January" if cohort.empty?
+  #cohort = "January" if cohort.empty? can be removed 
+  if months.include?(cohort.downcase)
+    return cohort
+  else
+    cohort = "January"
+  end
   # ask about hobby
   puts "Please enter a hobby"
   hobby = gets.chomp
@@ -37,9 +42,13 @@ def student_input
     if name.empty?
       break
     end
-    puts "Whtat is the cohort?"
+    puts "Whtat is the cohort? Note, it will be set to January as default"
     cohort = gets.chomp.to_sym
-    cohort = "January" if cohort.empty?
+    if months.include?(cohort.downcase)
+      return cohort
+    else
+      cohort = "January"
+    end
     puts "And the hobby?"
     hobby = gets.chomp
   end
