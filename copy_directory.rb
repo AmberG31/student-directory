@@ -19,7 +19,7 @@ def student_input
   puts "Please enter the names of the students"
   puts "To finish, leave the name blank and press enter"
 # ask for user input on name
-  name = gets.chomp
+  name = gets.strip
 # while the name is not empty, repeat this code
   while !name.empty? do
     name = name.capitalize!
@@ -32,7 +32,7 @@ def student_input
       cohort = "January"
     end
     puts "And the hobby?"
-    hobby = gets.chomp.capitalize!
+    hobby = gets.chomp
     
     students << {name: name, cohort: cohort, hobbies: hobby}
     puts "Now we have #{students.count} students"
@@ -59,8 +59,16 @@ def print(students)
   i += 1
 end
 
+
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students".center(CENTER_SPACE)
+  student_grammar = "student"
+  if students.length < 2
+    student_grammar = "student"
+  else
+    student_grammar = "students"
+  end
+  
+  puts "Overall, we have #{students.count} great #{student_grammar}.".center(CENTER_SPACE)
 end
 
 students = student_input
